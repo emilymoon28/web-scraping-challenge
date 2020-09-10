@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid" style="background-color: antiquewhite;">
+    <h1 class="text-center" style="padding-top: 30px;padding-bottom: 30px;margin-bottom: 30px;">Mission to Mars</h1>
+    <p class="text-center"><a class="btn btn-primary btn-lg" href="/scrape" role="button">GET NEW DATA!</a></p>
+  </div>
+
+  <div class="container-fluid">
+    <div>
+      <h3>Latest Mars News</h3>
+      <h5>{{ result_doc.news_title}}</h5>
+      <p>{{ result_doc.news_p}}</p>
+    </div>
+
+    <div class="row"> 
+      <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-8">
+              <h3>Featured Mars Image</h3>
+              <img src="{{ result_doc.featured_image_url }}" width=80% alt="mars featured image">
+            </div>
+            <div class="col-lg-4">
+              <div class="row">
+                <div class="col-lg-12" style="border: 2px solid grey;border-radius: 5px;">
+                  <h3>Current Weather on Mars</h3>
+                  <p>{{ result_doc.mars_weather}}</p>
+                </div>
+                
+                <div class="col-lg-12">
+                  <h3>Mars Facts Table</h3>
+                  <div>{{ result_doc.fact_table_html | safe}}</div>
+                </div>
+              </div>
+            </div>
+         </div> 
+      </div>
+   </div>
+  </div>
+  
+  <div class="container-fluid">
+    <h3 class="text-center">Mars Hemispheres</h3>
+    <div class="row">
+      {% for img in result_doc.hemisphere_image_urls %}
+        <div class="col-lg-6" style="border: 1px solid grey">
+          <img src="{{ img.image_url }}" width=90% alt="hem_img">
+          <h4>{{ img.title}}</h4>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+ 
+  
+
+</body>
+
+</html>

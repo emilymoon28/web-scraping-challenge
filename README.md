@@ -1,5 +1,8 @@
 # web-scraping-challenge
 
+In this project, I built a web application that scrapes various websites for data that is realted to Mars and displays the information in a single HTML page.
+Here are the steps of how I accomplished it.
+
 Step 1 - Scraping<br>
 <ul>
   <li>Scrap images, text, and table from 5 different resources/website about mars.</li>
